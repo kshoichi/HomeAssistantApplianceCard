@@ -1,0 +1,83 @@
+#insert this into your sensors yaml
+- platform: template
+  sensors:
+    dishwasher_state:
+      friendly_name: 'Dishwasher Program Length'
+      value_template: '{{ state_attr("sensor.dishwasher", "run_state") }}' 
+      icon_template: mdi:dishwasher      
+    dishwasher_program_length:
+      friendly_name: 'Dishwasher Program Length'
+      value_template: >-
+        {% set dishwasherprogramminutes = (states.sensor.dishwasher.attributes.initial_time.split(':')[0]|int * 60) + (states.sensor.dishwasher.attributes.initial_time.split(':')[1] | int) %}
+        {{ dishwasherprogramminutes }} 
+      icon_template: mdi:dishwasher      
+    dishwasher_remaining_time:
+      friendly_name: 'Dishwasher Remaining Time'
+      value_template: >-
+        {% set dishwasherremainminutes = (states.sensor.dishwasher.attributes.remain_time.split(':')[0]|int * 60) + (states.sensor.dishwasher.attributes.remain_time.split(':')[1] | int) %}
+        {{ dishwasherremainminutes }}
+      icon_template: mdi:dishwasher      
+    dishwasher_progress:
+      friendly_name: 'Dishwasher Progress'
+      value_template: >-
+        {% if (states.sensor.dishwasher_program_length.state | int) < 1 %}
+          0
+        {% else %}          
+          {% set dishwasherprogress = (100 - (((states.sensor.dishwasher_remaining_time.state | int) / (states.sensor.dishwasher_program_length.state | int)) * 100)) %}
+          {{ dishwasherprogress }}
+        {% endif %}         
+      icon_template: mdi:dishwasher      
+
+    washer_state:
+      friendly_name: 'Washer State'
+      value_template: '{{ state_attr("sensor.washer", "run_state") }}'
+      icon_template: mdi:washing-machine      
+    washer_program_length:
+      friendly_name: 'Washer Program Length'
+      value_template: >-
+        {% set washerprogramminutes = (states.sensor.washer.attributes.initial_time.split(':')[0]|int * 60) + (states.sensor.washer.attributes.initial_time.split(':')[1] | int) %}
+        {{ washerprogramminutes }}
+      icon_template: mdi:washing-machine      
+    washer_remaining_time:
+      friendly_name: 'Washer Remaining Time'
+      value_template: >-
+        {% set washerremainminutes = (states.sensor.washer.attributes.remain_time.split(':')[0]|int * 60) + (states.sensor.washer.attributes.remain_time.split(':')[1] | int) %}
+        {{ washerremainminutes }}
+      icon_template: mdi:washing-machine
+    washer_progress:
+      friendly_name: 'Washer Progress'
+      value_template: >-
+        {% if (states.sensor.washer_program_length.state | int) < 1 %}
+          0
+        {% else %}          
+          {% set washerprogress = (100 - (((states.sensor.washer_remaining_time.state | int) / (states.sensor.washer_program_length.state | int)) * 100)) %}
+          {{ washerprogress }}
+        {% endif %}             
+      icon_template: mdi:dishwasher
+      
+    dryer_state:
+      friendly_name: 'Dryer State'
+      value_template: '{{ state_attr("sensor.dryer", "run_state") }}'
+      icon_template: mdi:washing-machine      
+    dryer_program_length:
+      friendly_name: 'Dryer Program Length'
+      value_template: >-
+        {% set dryerprogramminutes = (states.sensor.dryer.attributes.initial_time.split(':')[0]|int * 60) + (states.sensor.dryer.attributes.initial_time.split(':')[1] | int) %}
+        {{ dryerprogramminutes }} 
+      icon_template: mdi:washing-machine      
+    dryer_remaining_time:
+      friendly_name: 'Dryer Remaining Time'
+      value_template: >-
+        {% set dryerprogramminutes = (states.sensor.dryer.attributes.remain_time.split(':')[0]|int * 60) + (states.sensor.dryer.attributes.remain_time.split(':')[1] | int) %}
+        {{ dryerprogramminutes }}
+      icon_template: mdi:washing-machine
+    dryer_progress:
+      friendly_name: 'Dryer Progress'
+      value_template: >-
+        {% if (states.sensor.dryer_program_length.state | int) < 1 %}
+          0
+        {% else %}           
+          {% set dryerprogress = (100 - (((states.sensor.dryer_remaining_time.state | int) / (states.sensor.dryer_program_length.state | int)) * 100)) %}
+          {{ dryerprogress }}
+        {% endif %}           
+      icon_template: mdi:dishwasher   
