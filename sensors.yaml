@@ -53,24 +53,24 @@
           {% set washerprogress = (100 - (((states.sensor.washer_remaining_time.state | int) / (states.sensor.washer_program_length.state | int)) * 100)) %}
           {{ washerprogress }}
         {% endif %}             
-      icon_template: mdi:dishwasher
+      icon_template: mdi:washing-machine
       
     dryer_state:
       friendly_name: 'Dryer State'
       value_template: '{{ state_attr("sensor.dryer", "run_state") }}'
-      icon_template: mdi:washing-machine      
+      icon_template: mdi:tumble-dryer     
     dryer_program_length:
       friendly_name: 'Dryer Program Length'
       value_template: >-
         {% set dryerprogramminutes = (states.sensor.dryer.attributes.initial_time.split(':')[0]|int * 60) + (states.sensor.dryer.attributes.initial_time.split(':')[1] | int) %}
         {{ dryerprogramminutes }} 
-      icon_template: mdi:washing-machine      
+      icon_template: mdi:tumble-dryer     
     dryer_remaining_time:
       friendly_name: 'Dryer Remaining Time'
       value_template: >-
         {% set dryerprogramminutes = (states.sensor.dryer.attributes.remain_time.split(':')[0]|int * 60) + (states.sensor.dryer.attributes.remain_time.split(':')[1] | int) %}
         {{ dryerprogramminutes }}
-      icon_template: mdi:washing-machine
+      icon_template: mdi:tumble-dryer
     dryer_progress:
       friendly_name: 'Dryer Progress'
       value_template: >-
@@ -80,4 +80,4 @@
           {% set dryerprogress = (100 - (((states.sensor.dryer_remaining_time.state | int) / (states.sensor.dryer_program_length.state | int)) * 100)) %}
           {{ dryerprogress }}
         {% endif %}           
-      icon_template: mdi:dishwasher   
+      icon_template: mdi:tumble-dryer   
