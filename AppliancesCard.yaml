@@ -31,8 +31,7 @@ cards:
         show_card: false
         stroke_width: 15
         style:
-          height: 60px
-          left: 18%
+          left: 15%
           top: 48%
           width: 80px
       - type: state-label
@@ -69,8 +68,7 @@ cards:
         show_card: false
         stroke_width: 15
         style:
-          height: 60px
-          left: 50%
+          left: 47%
           top: 48%
           width: 80px
       - type: state-label
@@ -107,8 +105,7 @@ cards:
         show_card: false
         stroke_width: 15
         style:
-          height: 60px
-          left: 82%
+          left: 79%
           top: 48%
           width: 80px
       - type: state-label
