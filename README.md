@@ -23,7 +23,6 @@ Install the following items from [HACS](https://hacs.xyz/):
 * [SmartThinQ LGE Sensors](https://github.com/ollo69/ha-smartthinq-sensors)
 * [vertical-stack-in-card](https://github.com/ofekashery/vertical-stack-in-card)
 * [circle-sensor-card](https://github.com/custom-cards/circle-sensor-card)
-* [text-element](https://github.com/custom-cards/text-element)
 
 In Home Assistant / Configuration / Integrations, install the
 SmartThinQ LGE Sensors Integration.
