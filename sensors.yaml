@@ -1,10 +1,6 @@
 #insert this into your sensors yaml
 - platform: template
-  sensors:
-    dishwasher_state:
-      friendly_name: 'Dishwasher Program Length'
-      value_template: '{{ state_attr("sensor.dishwasher", "run_state") }}' 
-      icon_template: mdi:dishwasher      
+  sensors:  
     dishwasher_program_length:
       friendly_name: 'Dishwasher Program Length'
       value_template: >-
@@ -26,12 +22,7 @@
           {% set dishwasherprogress = (100 - (((states.sensor.dishwasher_remaining_time.state | int) / (states.sensor.dishwasher_program_length.state | int)) * 100)) %}
           {{ dishwasherprogress }}
         {% endif %}         
-      icon_template: mdi:dishwasher      
-
-    washer_state:
-      friendly_name: 'Washer State'
-      value_template: '{{ state_attr("sensor.washer", "run_state") }}'
-      icon_template: mdi:washing-machine      
+      icon_template: mdi:dishwasher          
     washer_program_length:
       friendly_name: 'Washer Program Length'
       value_template: >-
@@ -53,12 +44,7 @@
           {% set washerprogress = (100 - (((states.sensor.washer_remaining_time.state | int) / (states.sensor.washer_program_length.state | int)) * 100)) %}
           {{ washerprogress }}
         {% endif %}             
-      icon_template: mdi:washing-machine
-      
-    dryer_state:
-      friendly_name: 'Dryer State'
-      value_template: '{{ state_attr("sensor.dryer", "run_state") }}'
-      icon_template: mdi:tumble-dryer     
+      icon_template: mdi:washing-machine  
     dryer_program_length:
       friendly_name: 'Dryer Program Length'
       value_template: >-
