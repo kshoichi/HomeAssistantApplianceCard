@@ -47,11 +47,12 @@ cards:
         style:
           left: 18%
           top: 75%
-      - type: 'custom:text-element'
+      - type: state-label
+        entity: sensor.washer
+        attribute: friendly_name
         style:
-          left: 18%
-          bottom: 2%
-        text: Washer
+          left: 19%
+          top: 89%
       #dryer
       - type: image
         image: /local/dryer-500.png
@@ -85,11 +86,12 @@ cards:
         style:
           left: 50%
           top: 75%
-      - type: 'custom:text-element'
+      - type: state-label
+        entity: sensor.dryer
+        attribute: friendly_name
         style:
           left: 50%
-          bottom: 2%
-        text: Dryer
+          top: 89%
       #dishwasher
       - type: image
         image: /local/dishwasher-500.png
@@ -123,10 +125,11 @@ cards:
         style:
           left: 82%
           top: 75%
-      - type: 'custom:text-element'
+      - type: state-label
+        entity: sensor.dishwasher
+        attribute: friendly_name
         style:
           left: 82%
-          bottom: 2%
-        text: Dishwasher
+          top: 89%
 title: null
 type: 'custom:vertical-stack-in-card'
