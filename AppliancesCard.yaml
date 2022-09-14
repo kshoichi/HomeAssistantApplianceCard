@@ -42,7 +42,8 @@ cards:
           top: 6%
           transform: initial
       - type: state-label
-        entity: sensor.washer_state
+        entity: sensor.washer
+        attribute: run_state
         style:
           left: 18%
           top: 75%
@@ -79,7 +80,8 @@ cards:
           top: 6%
           transform: initial
       - type: state-label
-        entity: sensor.dryer_state
+        entity: sensor.dryer
+        attribute: run_state
         style:
           left: 50%
           top: 75%
@@ -116,7 +118,8 @@ cards:
           top: 6%
           transform: initial
       - type: state-label
-        entity: sensor.dishwasher_state
+        entity: sensor.dishwasher
+        attribute: run_state
         style:
           left: 82%
           top: 75%
