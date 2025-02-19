@@ -1,106 +1,14 @@
+type: grid
 cards:
-  #title
   - type: picture-elements
-    image: /local/title-dark.png
     elements:
-      - type: 'custom:text-element'
-        text: Appliances
-        style:
-          color: white
-          font-size: 175%
-          left: 5%
-          top: 35%
-          transform: initial
-  - type: picture-elements
-    image: /local/background200.png
-    #washer
-    elements:
-      - type: image
-        image: /local/washer-500.png
-        style:
-          left: 18%
-          top: 44%
-          width: 28%
-      - type: 'custom:circle-sensor-card'
-        fill: 'rgba(66, 66, 66)'
-        max: 100
-        entity: sensor.washer_progress
-        font_style:
-          font-size: 0
-          text-align: center
-        show_card: false
-        stroke_width: 15
-        style:
-          left: 15%
-          top: 48%
-          width: 80px
       - type: state-label
-        entity: sensor.washer_remaining_time
+        entity: sensor.dishwasher_remaining_time
         style:
-          color: '#99d6ff'
-          left: 21%
-          top: 6%
-          transform: initial
-      - type: state-label
-        entity: sensor.washer
-        attribute: run_state
-        style:
-          left: 18%
-          top: 75%
-      - type: state-label
-        entity: sensor.washer
-        attribute: friendly_name
-        style:
-          left: 19%
-          top: 89%
-      #dryer
-      - type: image
-        image: /local/dryer-500.png
-        style:
-          left: 50%
-          top: 44%
-          width: 28%
-      - type: 'custom:circle-sensor-card'
-        fill: 'rgba(66, 66, 66)'
-        max: 100
-        entity: sensor.dryer_progress
-        font_style:
-          font-size: 0
-          text-align: center
-        show_card: false
-        stroke_width: 15
-        style:
-          left: 47%
-          top: 48%
-          width: 80px
-      - type: state-label
-        entity: sensor.dryer_remaining_time
-        style:
-          color: '#99d6ff'
-          left: 53%
-          top: 6%
-          transform: initial
-      - type: state-label
-        entity: sensor.dryer
-        attribute: run_state
-        style:
-          left: 50%
-          top: 75%
-      - type: state-label
-        entity: sensor.dryer
-        attribute: friendly_name
-        style:
-          left: 50%
-          top: 89%
-      #dishwasher
-      - type: image
-        image: /local/dishwasher-500.png
-        style:
-          left: 82%
-          top: 44%
-          width: 28%
-      - type: 'custom:circle-sensor-card'
-        fill: 'rgba(66, 66, 66, 0)'
+          right: 1%
+          top: 12.5%
+          color: "#99d6ff"
+      - type: custom:circle-sensor-card
         max: 100
         entity: sensor.dishwasher_progress
         font_style:
@@ -109,27 +17,72 @@ cards:
         show_card: false
         stroke_width: 15
         style:
-          left: 79%
-          top: 48%
-          width: 80px
+          left: 41%
+          top: 56%
       - type: state-label
-        entity: sensor.dishwasher_remaining_time
+        entity: sensor.dishwasher_run_state
         style:
-          color: '#99d6ff'
-          left: 85%
-          top: 6%
-          transform: initial
+          left: 50%
+          top: 91%
+    image: /api/image/serve/15665847a4addbee6d8c9da94d84e26f/512x512
+    grid_options:
+      columns: 4
+      rows: auto
+  - type: picture-elements
+    elements:
       - type: state-label
-        entity: sensor.dishwasher
-        attribute: run_state
+        entity: sensor.washer_remaining_time
         style:
-          left: 82%
-          top: 75%
+          right: 1%
+          top: 12.5%
+          color: "#99d6ff"
+      - type: custom:circle-sensor-card
+        fill: rgba(66, 66, 66)
+        max: 100
+        entity: sensor.washer_progress
+        font_style:
+          font-size: 0
+          text-align: center
+        show_card: false
+        stroke_width: 15
+        style:
+          left: 42%
+          top: 56%
       - type: state-label
-        entity: sensor.dishwasher
-        attribute: friendly_name
+        entity: sensor.washer_run_state
         style:
-          left: 82%
-          top: 89%
-title: null
-type: 'custom:vertical-stack-in-card'
+          left: 50%
+          top: 91%
+    grid_options:
+      columns: 4
+      rows: auto
+    image: /api/image/serve/5af9c020836d67a234ae0cb4b4738bb5/512x512
+  - type: picture-elements
+    elements:
+      - type: state-label
+        entity: sensor.dryer_remaining_time_2
+        style:
+          right: 1%
+          top: 12.5%
+          color: "#99d6ff"
+      - type: custom:circle-sensor-card
+        fill: rgba(66, 66, 66)
+        max: 100
+        entity: sensor.dryer_progress
+        font_style:
+          font-size: 0
+          text-align: center
+        show_card: false
+        stroke_width: 15
+        style:
+          left: 42%
+          top: 56%
+      - type: state-label
+        entity: sensor.dryer_run_state
+        style:
+          left: 50%
+          top: 91%
+    grid_options:
+      columns: 4
+      rows: auto
+    image: /api/image/serve/b56736bbf1b6e2c697255d5b268df638/512x512
