@@ -21,7 +21,6 @@ Steps to install:
 Install the following items from [HACS](https://hacs.xyz/):
 
 * [SmartThinQ LGE Sensors](https://github.com/ollo69/ha-smartthinq-sensors)
-* [vertical-stack-in-card](https://github.com/ofekashery/vertical-stack-in-card)
 * [circle-sensor-card](https://github.com/custom-cards/circle-sensor-card)
 
 In Home Assistant / Configuration / Integrations, install the
@@ -36,3 +35,6 @@ use the File Editor addon for this)
 
 Copy the [yaml](./AppliancesCard.yaml) from github and paste it into
 a new card. Edit the entity_id's and styles to fit your system.
+
+Note that your system might not provide the necessary date. There's a 
+chance that your entity id's are named differently than mine. 
